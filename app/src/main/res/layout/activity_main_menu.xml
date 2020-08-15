@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<LinearLayout
     android:orientation="vertical"
-    android:layout_marginTop="150dp"
-    app:cardElevation="20dp"
-    app:cardCornerRadius="70dp"
-    app:cardBackgroundColor="#2c0452"
-    android:background="#b252a1"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent"
+    tools:context=".MainMenu">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="100dp"
+        app:cardBackgroundColor="#2c0452"
+        app:cardElevation="30dp"
+        app:cardCornerRadius="70dp"
+        app:contentPadding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivprofile"
-            android:src="@mipmap/david"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivprofile"
+                android:src="@mipmap/david"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
             <LinearLayout
@@ -31,7 +37,7 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:textSize="30dp"
-                    android:id="@+id/tvname1"
+                    android:id="@+id/tvname"
                     android:text="Its David"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -39,19 +45,23 @@
                     />
                 <TextView
                     android:textSize="15dp"
-                    android:id="@+id/tvdesc1"
+                    android:id="@+id/tvdesc"
                     android:text="this is david 1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#b252a1"
                     />
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="150dp"
-        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        app:cardElevation="30dp"
+        app:cardCornerRadius="70dp"
+        app:contentPadding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -96,8 +106,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:layout_marginTop="30dp"
+
         app:cardBackgroundColor="#2c0452"
-        android:layout_marginTop="275dp"
+        app:cardElevation="30dp"
+        app:cardCornerRadius="70dp"
+        app:contentPadding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -130,7 +144,7 @@
                 <TextView
                     android:textSize="15dp"
                     android:id="@+id/tvdesc3"
-                    android:text="this is david 3"
+                    android:text="this is david 1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#b252a1"
@@ -140,4 +154,5 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</androidx.cardview.widget.CardView>
+
+</LinearLayout>

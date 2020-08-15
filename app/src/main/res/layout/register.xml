@@ -13,7 +13,7 @@
      android:layout_gravity="center"
      android:layout_margin="30dp"
      android:textColor="#66a1d2"
-     android:textStyle="bold"
+     android:textStyle="bold"/>
     <ImageView
         android:layout_width="140dp"
         android:layout_height="140dp"
