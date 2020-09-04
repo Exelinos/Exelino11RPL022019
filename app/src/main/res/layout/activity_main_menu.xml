@@ -9,6 +9,7 @@
     tools:context=".MainMenu">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
         android:layout_marginTop="100dp"
         app:cardBackgroundColor="#2c0452"
         app:cardElevation="30dp"
@@ -38,7 +39,7 @@
                 <TextView
                     android:textSize="30dp"
                     android:id="@+id/tvname"
-                    android:text="Its David"
+                    android:text="Show Film"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#b252a1"
@@ -58,6 +59,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
         android:layout_marginTop="30dp"
         app:cardElevation="30dp"
         app:cardCornerRadius="70dp"
@@ -86,7 +88,7 @@
                 <TextView
                     android:textSize="30dp"
                     android:id="@+id/tvname2"
-                    android:text="Its David"
+                    android:text="Show My List"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#b252a1"
