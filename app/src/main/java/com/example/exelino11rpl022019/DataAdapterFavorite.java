@@ -10,19 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.bumptech.glide.request.RequestOptions;
-
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
-
-public class adapter extends RecyclerView.Adapter<adapter.DatakuViewHolder> {
-    private ArrayList<Model> dataList;
+public class DataAdapterFavorite extends RecyclerView.Adapter<DataAdapterFavorite.DatakuViewHolder> {
+    private ArrayList<ModelMovieRealm> dataList;
     private Callback callback;
     View viewku;
     int posku;
@@ -33,10 +30,10 @@ public class adapter extends RecyclerView.Adapter<adapter.DatakuViewHolder> {
     }
 
 
-    public adapter(ArrayList<Model> dataList, Callback callback) {
+    public DataAdapterFavorite(ArrayList<ModelMovieRealm> dataList, Callback callback) {
         this.callback = callback;
         this.dataList = dataList;
-        Log.d("data", "adapter: "+dataList.size()+"");
+        Log.d("makanan", "MahasiswaAdapter: "+dataList.size()+"");
     }
 
     @Override
@@ -48,12 +45,14 @@ public class adapter extends RecyclerView.Adapter<adapter.DatakuViewHolder> {
 
     @Override
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
-        holder.txtNama.setText(dataList.get(position).getOriginal_title());
-        holder.txtNpm.setText(dataList.get(position).getOverview());
-        Log.d("data", "onBindViewHolder: "+dataList.get(position).getPoster_path());
+        holder.txtNama.setText(dataList.get(position).getJudul());
+        holder.txtNpm.setText(dataList.get(position).getReleaseDate());
+        Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getPath());
+        //pakai glide karena untuk nampilkan data gambar dari URL / permission / graddle
         Glide.with(holder.itemView)
-                .load(dataList.get(position).getPoster_path())
-                .override(Target.SIZE_ORIGINAL)
+                .load(dataList.get(position).getPath())
+                //.override(Target.SIZE_ORIGINAL)
+                .apply(new RequestOptions().override(600, 200))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.ivprofile);
 
@@ -73,9 +72,9 @@ public class adapter extends RecyclerView.Adapter<adapter.DatakuViewHolder> {
             super(itemView);
             viewku=itemView;
             card = (CardView) itemView.findViewById(R.id.cardku);
-            ivprofile = (ImageView) itemView.findViewById(R.id.ivprofile12);
-            txtNama = (TextView) itemView.findViewById(R.id.tvname12);
-            txtNpm = (TextView) itemView.findViewById(R.id.tvdesc12);
+            ivprofile = (ImageView) itemView.findViewById(R.id.ivprofile);
+            txtNama = (TextView) itemView.findViewById(R.id.tvname);
+            txtNpm = (TextView) itemView.findViewById(R.id.tvdesc);
             itemView.setOnCreateContextMenuListener(this);
 
             itemView.setOnClickListener(new View.OnClickListener() {
