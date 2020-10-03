@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_marginTop="150dp"
     app:cardElevation="20dp"
-    app:cardCornerRadius="70dp"
+    app:cardCornerRadius="20dp"
     app:cardBackgroundColor="#2c0452"
     android:background="#b252a1"
     xmlns:android="http://schemas.android.com/apk/res/android"

@@ -22,5 +22,11 @@ public class MainMenu extends AppCompatActivity {
             }
         });
         menu2 = findViewById(R.id.card2);
+        menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ListDataFavorite.class));
+            }
+        });
     }
 }

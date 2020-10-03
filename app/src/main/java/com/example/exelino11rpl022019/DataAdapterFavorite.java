@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.List;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.ArrayList;
+
 public class DataAdapterFavorite extends RecyclerView.Adapter<DataAdapterFavorite.DatakuViewHolder> {
-    private ArrayList<ModelMovieRealm> dataList;
+    private List<ModelMovieRealm> dataList;
     private Callback callback;
     View viewku;
     int posku;
@@ -30,7 +31,7 @@ public class DataAdapterFavorite extends RecyclerView.Adapter<DataAdapterFavorit
     }
 
 
-    public DataAdapterFavorite(ArrayList<ModelMovieRealm> dataList, Callback callback) {
+    public DataAdapterFavorite(List<ModelMovieRealm> dataList, Callback callback) {
         this.callback = callback;
         this.dataList = dataList;
         Log.d("makanan", "MahasiswaAdapter: "+dataList.size()+"");

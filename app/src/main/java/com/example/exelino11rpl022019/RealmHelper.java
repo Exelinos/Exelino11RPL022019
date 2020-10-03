@@ -13,7 +13,7 @@ public class RealmHelper {
     }
 
     // untuk menyimpan data
-    public void save(final ModelMovieRealm movieModel){
+    public void save    (final ModelMovieRealm movieModel){
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -36,7 +36,7 @@ public class RealmHelper {
     }
 
     // untuk memanggil semua data
-    public List<ModelMovieRealm> getAllMahasiswa(){
+    public List<ModelMovieRealm> getAllMovie(){
         RealmResults<ModelMovieRealm> results = realm.where(ModelMovieRealm.class).findAll();
         return results;
     }
