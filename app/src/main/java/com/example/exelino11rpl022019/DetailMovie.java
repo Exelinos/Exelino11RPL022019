@@ -36,9 +36,9 @@ public class DetailMovie extends AppCompatActivity {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_detail_movie);
                 extras = getIntent().getExtras();
-                tvnamedetail = (TextView) findViewById(R.id.tvnamedetail);
-                tvdescdetail = (TextView) findViewById(R.id.tvdescdetail);
-                ivdetail = (ImageView) findViewById(R.id.ivdetail);
+                tvnamedetail = findViewById(R.id.tvjuduld);
+                tvdescdetail = findViewById(R.id.tvdescrip);
+                ivdetail = findViewById(R.id.tvposter);
                 btnbookmark = (Button) findViewById(R.id.btnbookmark);
 
                 if (extras != null) {
