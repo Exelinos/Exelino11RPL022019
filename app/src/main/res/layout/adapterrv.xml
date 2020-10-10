@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView
     android:id="@+id/cardku"
     android:orientation="vertical"
-    android:layout_marginTop="150dp"
+    android:layout_marginTop="14dp"
     app:cardElevation="20dp"
     app:cardCornerRadius="20dp"
     app:cardBackgroundColor="#2c0452"
@@ -38,14 +38,14 @@
                     android:layout_height="wrap_content"
                     android:textColor="#b252a1"
                     />
+
                 <TextView
-                    android:textSize="15dp"
                     android:id="@+id/tvdesc12"
-                    android:text="this is david 1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="this is david 1"
                     android:textColor="#b252a1"
-                    />
+                    android:textSize="15dp" />
 
         </LinearLayout>
 
