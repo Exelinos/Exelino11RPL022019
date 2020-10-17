@@ -29,7 +29,7 @@ public class DetailMovie extends AppCompatActivity {
 
         TextView tvnamedetail;
         ImageView ivdetail;
-        TextView tvdescdetail;
+        TextView tvdescdecri;
         Button btnbookmark;
 
         protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class DetailMovie extends AppCompatActivity {
                 setContentView(R.layout.activity_detail_movie);
                 extras = getIntent().getExtras();
                 tvnamedetail = findViewById(R.id.tvjuduld);
-                tvdescdetail = findViewById(R.id.tvdescrip);
+                tvdescdecri = findViewById(R.id.tvdescrip);
                 ivdetail = findViewById(R.id.tvposter);
                 btnbookmark = (Button) findViewById(R.id.btnbookmark);
 
@@ -48,7 +48,7 @@ public class DetailMovie extends AppCompatActivity {
                         deskripsi = extras.getString("deskripsi");
                         path = extras.getString("path");
                         tvnamedetail.setText(title);
-                        tvdescdetail.setText(deskripsi);
+                        tvdescdecri.setText(deskripsi);
                         Glide.with(DetailMovie.this)
                                 .load(path)
                                 .override(Target.SIZE_ORIGINAL)

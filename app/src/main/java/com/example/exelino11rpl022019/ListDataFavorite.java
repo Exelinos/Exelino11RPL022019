@@ -1,6 +1,7 @@
 package com.example.exelino11rpl022019;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +34,13 @@ public class ListDataFavorite extends AppCompatActivity {
         adapter = new DataAdapterFavorite(DataArrayList, new DataAdapterFavorite.Callback() {
             @Override
             public void onClick(int position) {
+                Intent move = new Intent(getApplicationContext(), DetailFavMovie.class);
+                move.putExtra("judul",DataArrayList.get(position).getJudul());
+                move.putExtra("path",DataArrayList.get(position).getPath());
+                move.putExtra("date",DataArrayList.get(position).getReleaseDate());
+                move.putExtra("deskripsi",DataArrayList.get(position).getDesc());
 
+                startActivity(move);
             }
 
             @Override

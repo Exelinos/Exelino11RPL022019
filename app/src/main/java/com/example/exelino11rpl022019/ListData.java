@@ -85,8 +85,8 @@ public class ListData extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 mymodel.setId(jsonObject.getInt("id"));
                                 mymodel.setOriginal_title(jsonObject.getString("original_title"));
-
                                 mymodel.setRelease_date(jsonObject.getString("release_date"));
+                                mymodel.setOverview(jsonObject.getString("overview"));
                                 mymodel.setPoster_path("https://image.tmdb.org/t/p/w500/"+jsonObject.getString("poster_path"));
                                 DataArrayList.add(mymodel);
                             }
