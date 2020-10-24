@@ -1,5 +1,7 @@
 package com.example.exelino11rpl022019;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -18,12 +20,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 
 public class DataAdapterFavorite extends RecyclerView.Adapter<DataAdapterFavorite.DatakuViewHolder> {
     private List<ModelMovieRealm> dataList;
     private Callback callback;
     View viewku;
     int posku;
+    Realm realm;
+    RealmHelper realmHelper;
 
     interface Callback {
         void onClick(int position);
@@ -35,6 +42,9 @@ public class DataAdapterFavorite extends RecyclerView.Adapter<DataAdapterFavorit
         this.callback = callback;
         this.dataList = dataList;
         Log.d("makanan", "MahasiswaAdapter: "+dataList.size()+"");
+        RealmConfiguration configuration = new RealmConfiguration.Builder().build();
+        realm = Realm.getInstance(configuration);
+        realmHelper = new RealmHelper(realm);
     }
 
     @Override
@@ -108,7 +118,25 @@ public class DataAdapterFavorite extends RecyclerView.Adapter<DataAdapterFavorit
 
                 case 2:
                     //Do stuff
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    //Yes button clicked
+                                    realmHelper.delete(dataList.get(posku).getId());
+                                    notifyDataSetChanged();
+                                    break;
 
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(viewku.getContext());
+                    builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
                     break;
             }
             return true;
