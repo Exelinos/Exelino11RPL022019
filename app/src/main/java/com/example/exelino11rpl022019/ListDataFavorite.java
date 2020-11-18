@@ -3,6 +3,8 @@ package com.example.exelino11rpl022019;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,19 +20,28 @@ public class ListDataFavorite extends AppCompatActivity {
     RealmHelper realmHelper;
     private RecyclerView recyclerView;
     private DataAdapterFavorite adapter;
+    private TextView tvnodata;
     private List<ModelMovieRealm> DataArrayList; //kit add kan ke adapter
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_data);
+        getSupportActionBar().hide();
         recyclerView = (RecyclerView) findViewById(R.id.rvdata);
+        tvnodata = (TextView) findViewById(R.id.tvnodata);
         DataArrayList = new ArrayList<>();
         // Setup Realm
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         realm =Realm.getInstance(configuration);
         realmHelper =new RealmHelper(realm);
         DataArrayList = realmHelper.getAllMovie();
+        if (DataArrayList.size() == 0){
+            tvnodata.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }else{
+            tvnodata.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
         adapter = new DataAdapterFavorite(DataArrayList, new DataAdapterFavorite.Callback() {
             @Override
             public void onClick(int position) {
@@ -52,5 +63,5 @@ public class ListDataFavorite extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
-
+    }
 }

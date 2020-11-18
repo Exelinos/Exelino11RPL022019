@@ -14,6 +14,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        getSupportActionBar().hide();
         menu1 = findViewById(R.id.card1);
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -135,8 +135,8 @@ public class DataAdapterFavorite extends RecyclerView.Adapter<DataAdapterFavorit
                         }
                     };
                     AlertDialog.Builder builder = new AlertDialog.Builder(viewku.getContext());
-                    builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
-                            .setNegativeButton("No", dialogClickListener).show();
+                    builder.setMessage("Beneran Pengen Di Hapus?").setPositiveButton("Iya", dialogClickListener)
+                            .setNegativeButton("Tidak", dialogClickListener).show();
                     break;
             }
             return true;

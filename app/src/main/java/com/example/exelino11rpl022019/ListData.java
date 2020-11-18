@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,11 +27,13 @@ public class ListData extends AppCompatActivity {
     private adapter adapter;
     private ArrayList<Model> DataArrayList; //kit add kan ke adapter
     private ImageView tambah_data;
+    ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_data);
         recyclerView =(RecyclerView) findViewById(R.id.rvdata);
+        dialog = new ProgressDialog(ListData.this);
         //addData();
         addDataOnline();
     }
@@ -66,6 +69,8 @@ public class ListData extends AppCompatActivity {
 
     }
     void addDataOnline() {
+        dialog.setMessage("Tunggu Sabentar yak");
+        dialog.show();
         AndroidNetworking.get("https://api.themoviedb.org/3/movie/now_playing?api_key=6c6127c916e64b6454947e00fa9c7507")
                 .setTag("test")
                 .setPriority(Priority.LOW)
@@ -113,8 +118,14 @@ public class ListData extends AppCompatActivity {
                             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ListData.this);
                             recyclerView.setLayoutManager(layoutManager);
                             recyclerView.setAdapter(adapter);
+                            if (dialog.isShowing()) {
+                                dialog.dismiss();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            if (dialog.isShowing()) {
+                                dialog.dismiss();
+                            }
                         }
                     }
 
